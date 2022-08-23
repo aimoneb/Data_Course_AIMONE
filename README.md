@@ -13,3 +13,4 @@ Their names are Fin Diesel, Marlin Monroe, and Margaritaville.
 They give me serotonin.
 my worst fear has been imagined with my fish
 Marlin and Marg are in a little clique and poor fin swims arround aimlessly with no friends.
+The only thing this pain is DEFINITELY comprable to is that which a parent feels when their poor little weakling child is left out of some pointless activity.
