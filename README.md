@@ -16,3 +16,4 @@ Marlin and Marg are in a little clique and poor fin swims arround aimlessly with
 The only thing this pain is DEFINITELY comprable to is that which a parent feels when their poor little weakling child is left out of some pointless activity.
 Asking for respect and space for my family at this time.
 Thoughts and prayers appreciated.
+I've been busting my ass, haven't learned a god damn thing
