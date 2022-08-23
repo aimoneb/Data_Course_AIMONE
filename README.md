@@ -8,3 +8,4 @@ Please ignore the two exra coppies of the first statement, becuase I don't know 
 My name is Behlee.
 I don't know what I'm doing with my life.
 This is a simulation.
+I have three fish.
