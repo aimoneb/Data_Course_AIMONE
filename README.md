@@ -18,3 +18,4 @@ Asking for respect and space for my family at this time.
 Thoughts and prayers appreciated.
 I've been busting my ass, haven't learned a god damn thing
 21
+22
