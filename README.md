@@ -17,3 +17,4 @@ The only thing this pain is DEFINITELY comprable to is that which a parent feels
 Asking for respect and space for my family at this time.
 Thoughts and prayers appreciated.
 I've been busting my ass, haven't learned a god damn thing
+21
