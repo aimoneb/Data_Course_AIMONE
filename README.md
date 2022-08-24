@@ -3,8 +3,8 @@ This README file contains information about my uploaded assigmnets
 This README file contains information about my uploaded assignments
 This README file contains information about my uploaded assignments
 This file only made me cry two times
-Please ignore the two exra coppies of the first statement, becuase I don't know how to delete them.
- Please ignore the rouge comma in the prior sentance as well.
+Please ignore the two exra copies of the first statement, becuase I don't know how to delete them.
+ Please ignore the rouge comma in the prior sentence as well.
 My name is Behlee.
 I don't know what I'm doing with my life.
 This is a simulation.
@@ -19,4 +19,5 @@ Thoughts and prayers appreciated.
 I've been busting my ass, haven't learned a god damn thing
 21
 22 another new line of text
-23
+23 another another new line of text 
+hello 2 
