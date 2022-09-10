@@ -196,7 +196,7 @@ View(iris_chr) #this viewed it to check and make sure
 # 5.  Create a new dataframe that is a subset of iris using only rows where Sepal.Area is greater than 20 
       # (name it big_area_iris)
 
-big_area_iris<-data.frame(Sepal.area[Sepal.area>20])#this made a dataframe that looked for sepal areas >20 
+big_area_iris<-data.frame(Sepal.area[Sepal.area>20])#this made a data frame that looked for sepal areas >20 
 
 View(big_area_iris)#this showed me what I wanted to see 
 # 6.  Upload the last numbered section of this R script (with all answers filled in and tasks completed) 
