@@ -1,0 +1,1 @@
+I want to do data analysis for my mycology group. I want to do several analysis with the zones of inhibition based on things like location found, type of culture, elevation, and anything else we can come up with.
