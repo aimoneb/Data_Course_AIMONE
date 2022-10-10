@@ -1,4 +1,4 @@
-library(tidyverse)
+\library(tidyverse)
 library(dplyr)
 dat <- read_csv("/Users/behleeaimone/Desktop/Data_Course_AIMONE/Data/BioLog_Plate_Data.csv")
 glimpse(dat)
