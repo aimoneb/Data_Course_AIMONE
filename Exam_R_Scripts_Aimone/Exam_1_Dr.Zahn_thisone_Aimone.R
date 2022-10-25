@@ -137,3 +137,7 @@ mfrbs %>%
   ggplot(aes(x=reorder(State_Name,- Maximum_Fatality_Ratio),y=Maximum_Fatality_Ratio))+
   geom_col()+
   ggeasy::easy_rotate_x_labels(angle = 90)
+
+
+
+
