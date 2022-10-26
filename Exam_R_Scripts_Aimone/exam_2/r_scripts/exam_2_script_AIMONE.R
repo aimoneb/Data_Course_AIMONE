@@ -191,7 +191,34 @@ ggsave("AIMONE_plot_3.png",plot=p3,path="./output",device = png)
 # 10. BONUS - Using your preferred model, predict what the U5MR would be for Ecuador in the year 2020. 
   # The real value for Ecuador for 2020 was 13 under-5 deaths per 1000 live births. 
   # How far off was your model prediction???
+  
 
-ecuador<-pred_dat %>% 
-  mutate(as.factor(year))
-predict(mod3,data.frame(year=2020,continent="Americas"))
+  # I am trying to retrain my model to use a numeric year instead of a character one to get my predict function to work. 
+  # it is not working this far 
+df_clean<-df_clean %>% 
+  mutate(as.numeric(year))
+mod4<-glm(data = df_clean,
+          formula = u5mr ~ as.numeric(year) * continent)
+df_clean %>% view
+performance(mod4)
+this<-data.frame(`as.numeric(year)`="2020", continent="Americas")
+this %>% view
+predict(mod4,newdata = this)
+
+  # That wasn't working, so I will go back to mod3 which is the same but without the year as numeric 
+this<-data.frame(year="2020", continent="Americas")
+predict(mod3,newdata = this)
+    # this still doesn't work for 2020, but I don't know how to fix it 
+    # It is not liking how I am putting in my year. 
+    # lets try to use it to predict a year that is in the data set 
+this<-data.frame(year="1997", continent="Americas")
+predict(mod3,newdata = this)
+    # it is  giving me a prediction for a year that lies in the data set, but not a year that lies outside of it 
+    # lets see if my other prediction model that has year as numeric will be happy with a year inside the data set 
+this<-data.frame("as.numeric(year)" = 2020, continent="Americas")
+predict(mod4,newdata = this)
+    # now it is saying the size is wrong 
+    # these hate me, so I will try some more bullshit code attempts  
+this<-data.frame(year="2020", continent="Americas")
+predict(mod3,newdata = this)
+    # this is where I give up :(    
