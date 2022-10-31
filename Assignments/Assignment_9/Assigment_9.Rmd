@@ -1,0 +1,95 @@
+---
+title: "assigment_9_Aimone"
+author: "Behlee Aimone"
+date: "2022-10-31"
+output: html_document
+---
+
+## My assigment 9
+
+```{r}
+library(tidyverse)
+library(easystats)
+library(dplyr)
+library(kableExtra)
+library(DT)
+library(modelr)
+```
+___
+
+```{r}
+df<-read_csv("./data/GradSchool_Admissions.csv") 
+
+```
+
+### Here is a glimpse of our dataset
+```{r}
+df %>% head() %>% kable() %>% kable_classic(lightable_options = 'hover')
+```
+___
+### Let's take a look at the relationships in this data  
+
+
+```{r}
+datfram<-df%>% mutate(admitancetf=case_when(admit==1~TRUE,
+                        TRUE~FALSE))
+
+p1<-datfram %>% ggplot(aes(x=gre,y=gpa,color=admitancetf))+
+  geom_smooth(se=FALSE)+
+  theme_minimal()
+plotly::ggplotly(p1)
+```
+
+
+```{r}
+p<-datfram %>% 
+  ggplot(aes(x=gre,y=rank,color=admitancetf))+
+  geom_density2d()+
+  theme_minimal()
+plotly::ggplotly(p)
+
+```
+#### Here is an interactive table that you can filter for attributes and see individuals that fit that criteria 
+```{r}
+datatable(datfram, rownames = FALSE, filter="top", options = list(pageLength = 5, scrollX=T) )
+```
+___
+### Now let's begin to model the data 
+#### First let's look how at the variables interact with eachother from 3,000 feet 
+```{r}
+GGally::ggpairs(datfram)
+```
+
+#### Let's make some models to attempt to explain the data 
+```{r,include=TRUE}
+mod1<-glm(data=datfram,
+          formula = admitancetf ~ gre,
+          family = "binomial")
+mod2<-glm(data=datfram,
+          formula = admitancetf ~ gre + gpa,
+          family = "binomial")
+mod3<-glm(data=datfram,
+          formula = admitancetf ~ gre + gpa + rank,
+          family = "binomial")
+mod4<-glm(data=datfram,
+          formula = admitancetf ~ gre * gpa,
+          family = "binomial")
+mod5<-glm(data=datfram,
+          formula = admitancetf ~ gre * gpa + rank,
+          family = "binomial")
+compare_performance(mod1,mod2,mod3,mod4,mod5) %>% plot()
+compare_performance(mod1,mod2,mod3,mod4,mod5,rank=TRUE)
+
+add_predictions(datfram,mod5,type = "response") %>% 
+  ggplot(aes(x=gre,y=pred))+
+  geom_point(color="black")+
+  geom_point(aes(y=admit,x=gre),alpha=.5,color="red")
+# I am not sure how to make this shitty binomial data look better. 
+# I think the predictions are the chance that they will get in. 
+
+  
+```
+___
+## This plot makes me angry, so here is a [**link**](https://www.youtube.com/watch?v=ofJHbO0plHc) to make us both feel a little better 
+
+
