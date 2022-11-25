@@ -81,7 +81,10 @@ mod1<-glm(data=cleanjune,
 # this makes us a pretty little table 
 tib1<-tidy(mod1, conf.level = TRUE)
 # this allows me to filter out the values that don't really mean anything to me 
-tib1 %>% filter(tib1$p.value<0.05)
+tib1<-tib1 %>% filter(tib1$p.value<0.05)
+# now I need to get rid of the weird prefixes 
+tib1 %>% transform(term=str_replace(term, "ChemicalID"," "))
+
 ```
 
 

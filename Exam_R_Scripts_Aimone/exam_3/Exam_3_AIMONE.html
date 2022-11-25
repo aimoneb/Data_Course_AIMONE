@@ -482,20 +482,20 @@ mod1&lt;-glm(data=cleanjune,
 # this makes us a pretty little table 
 tib1&lt;-tidy(mod1, conf.level = TRUE)
 # this allows me to filter out the values that don&#39;t really mean anything to me 
-tib1 %&gt;% filter(tib1$p.value&lt;0.05)</code></pre>
-<pre><code>## # A tibble: 10 × 5
-##    term                      estimate std.error statistic  p.value
-##    &lt;chr&gt;                        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-##  1 ChemicalIDalpha-cedrene      10.6      0.899     11.8  1.13e-29
-##  2 ChemicalIDbeta-cedrene        2.78     0.899      3.09 2.09e- 3
-##  3 ChemicalIDbeta-eudesmol       1.79     0.899      1.99 4.71e- 2
-##  4 ChemicalIDcedr-8-en-13-ol     5.55     0.899      6.17 1.08e- 9
-##  5 ChemicalIDcedrol             19.8      0.899     22.0  1.40e-83
-##  6 ChemicalIDcis-thujopsene     21.3      0.899     23.7  3.09e-93
-##  7 ChemicalIDcompound 1          1.82     0.899      2.02 4.36e- 2
-##  8 ChemicalIDcuparene            1.92     0.899      2.14 3.28e- 2
-##  9 ChemicalIDthujopsenal         1.79     0.899      1.99 4.71e- 2
-## 10 ChemicalIDwiddrol             6.14     0.899      6.82 1.84e-11</code></pre>
+tib1&lt;-tib1 %&gt;% filter(tib1$p.value&lt;0.05)
+# now I need to get rid of the weird prefixes 
+tib1 %&gt;% transform(term=str_replace(term, &quot;ChemicalID&quot;,&quot; &quot;))</code></pre>
+<pre><code>##                term  estimate std.error statistic      p.value
+## 1     alpha-cedrene 10.623529 0.8993768 11.812101 1.129683e-29
+## 2      beta-cedrene  2.776471 0.8993768  3.087105 2.094790e-03
+## 3     beta-eudesmol  1.788235 0.8993768  1.988305 4.713721e-02
+## 4   cedr-8-en-13-ol  5.552941 0.8993768  6.174210 1.083308e-09
+## 5            cedrol 19.823529 0.8993768 22.041407 1.400413e-83
+## 6    cis-thujopsene 21.298824 0.8993768 23.681759 3.093679e-93
+## 7        compound 1  1.817647 0.8993768  2.021007 4.363007e-02
+## 8          cuparene  1.923529 0.8993768  2.138736 3.277604e-02
+## 9       thujopsenal  1.788235 0.8993768  1.988305 4.713721e-02
+## 10          widdrol  6.135294 0.8993768  6.821717 1.840395e-11</code></pre>
 </div>
 
 
